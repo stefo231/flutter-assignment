@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_home_assignment/app/ui/widgets/score.dart';
+import 'package:flutter_home_assignment/theme/custom_colors.dart';
 
 class TopBar extends StatelessWidget {
   const TopBar({
@@ -15,7 +16,7 @@ class TopBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          const Icon(Icons.close),
+          Icon(Icons.close, size: 32.0, color: CustomColors.grey.color,),
           Score(score: score),
         ],
       ),

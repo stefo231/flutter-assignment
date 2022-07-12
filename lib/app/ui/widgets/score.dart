@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../theme/custom_colors.dart';
-import '../../../theme/dimensions.dart';
 
 class Score extends StatelessWidget {
   const Score({
@@ -14,17 +12,19 @@ class Score extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        const Icon(
-          Icons.hexagon,
-          color: Colors.amber,
+        Image.asset('assets/score_background.png', width: 120.0),
+        Positioned.fill(
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 12.0),
+              child: Text(
+                "$score",
+                style: Theme.of(context).textTheme.headline1,
+              ),
+            ),
+          ),
         ),
-        Container(
-            decoration: BoxDecoration(
-                border: Border.all(
-                  color: CustomColors.grey.color,
-                ),
-                borderRadius: const BorderRadius.all(Radius.circular(UIDimensions.defaultRadius))),
-            child: Text("$score",style: Theme.of(context).textTheme.headline1,)),
       ],
     );
   }

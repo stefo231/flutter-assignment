@@ -20,7 +20,7 @@ extension ColorExtension on CustomColors {
       case CustomColors.green:
         return const Color.fromRGBO(100, 150, 5, 1);
       case CustomColors.grey:
-        return const Color.fromRGBO(68, 68, 68, 1);
+        return const Color.fromRGBO(140, 139, 139, 1.0);
       case CustomColors.purple:
         return const Color.fromRGBO(159, 43, 104, 1);
     }
