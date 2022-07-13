@@ -1,6 +1,6 @@
-class Questioni{
+class Question{
 
-  Questioni(this.incorrect, this.correct, this.text);
+  Question(this.incorrect, this.correct, this.text);
 
   List<String> incorrect;
   String correct;

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_home_assignment/app/models/question.dart';
+import 'package:flutter_home_assignment/app/provider/quiz_provider.dart';
 import 'package:flutter_home_assignment/app/ui/widgets/answer_button.dart';
 import 'package:flutter_home_assignment/theme/dimensions.dart';
+import 'package:provider/provider.dart';
 
 class QuestionAnswers extends StatelessWidget {
   const QuestionAnswers({Key? key, required this.question}) : super(key: key);
 
-  final Questioni question;
+  final Question question;
 
   @override
   Widget build(BuildContext context) {
@@ -23,33 +25,43 @@ class QuestionAnswers extends StatelessWidget {
             style: Theme.of(context).textTheme.headline1,
           ),
           const SizedBox(
-            height: 20.0,
+            height: UIDimensions.defaultPadding,
           ),
-          ...generateButtons()
+          Consumer<QuizProvider>(
+            builder: (context, provider, child) {
+              return IgnorePointer(
+                ignoring: provider.isAnyAnswerSelected,
+                child: ListView(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  children: generateButtons(context),
+                ),
+              );
+            },
+          )
         ],
       ),
     );
   }
 
-  List<Widget> generateButtons() {
+  List<Widget> generateButtons(BuildContext context) {
     List<Widget> buttons = [];
+
     for (String answerText in question.incorrect) {
       buttons.add(AnswerButton(
         text: answerText,
-        onPressed: () {
-          // provider.onWrongSelection
-        },
-        paddingBottom: 12.0,
+        onPressed: () => context.read<QuizProvider>().onWrongAnswerSelected(),
+        paddingBottom: UIDimensions.answerButtonBottomPadding,
+        status: context.read<QuizProvider>().isAnyAnswerSelected ? ButtonStatus.incorrect : ButtonStatus.neutral,
       ));
     }
-    buttons.add(AnswerButton(
+    buttons.insert(context.read<QuizProvider>().correctAnswerButtonPosition, AnswerButton(
       text: question.correct,
-      onPressed: () {
-        // provider.onCorrectSelection
-      },
-      paddingBottom: 12.0,
+      onPressed: () => context.read<QuizProvider>().onCorrectAnswerSelected(),
+      paddingBottom: UIDimensions.answerButtonBottomPadding,
+      status: context.read<QuizProvider>().isAnyAnswerSelected ? ButtonStatus.correct : ButtonStatus.neutral,
     ));
-    buttons.shuffle();
+
     return buttons;
   }
 }

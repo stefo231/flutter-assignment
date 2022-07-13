@@ -12,9 +12,9 @@ class CustomTheme {
           buttonColor: CustomColors.blue.color,
         ),
       textTheme: const TextTheme(
-        headline1: TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold),
-        headline2: TextStyle(fontSize: 18.0, fontStyle: FontStyle.italic),
-        bodyText1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+        headline1: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+        headline2: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+        bodyText1: TextStyle(fontSize: 14.0),
       ),
     );
   }

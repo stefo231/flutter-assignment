@@ -12,14 +12,12 @@ class TopBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Icon(Icons.close, size: 32.0, color: CustomColors.grey.color,),
-          Score(score: score),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Icon(Icons.close, size: 32.0, color: CustomColors.grey.color,),
+        Score(score: score),
+      ],
     );
   }
 }

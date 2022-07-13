@@ -8,6 +8,10 @@ enum CustomColors {
   green,
   grey,
   purple,
+  red,
+  progressGrey,
+  progressGreen,
+  pageIndicatorColor,
 }
 
 extension ColorExtension on CustomColors {
@@ -18,11 +22,19 @@ extension ColorExtension on CustomColors {
       case CustomColors.blue:
         return const Color.fromRGBO(0, 76, 146, 1);
       case CustomColors.green:
-        return const Color.fromRGBO(100, 150, 5, 1);
+        return const Color.fromRGBO(114, 169, 6, 1.0);
       case CustomColors.grey:
         return const Color.fromRGBO(140, 139, 139, 1.0);
       case CustomColors.purple:
-        return const Color.fromRGBO(159, 43, 104, 1);
+        return const Color.fromRGBO(112, 28, 255, 1.0);
+      case CustomColors.red:
+        return const Color.fromRGBO(157, 29, 61, 1.0);
+      case CustomColors.progressGrey:
+        return const Color.fromRGBO(227, 222, 224, 1.0);
+      case CustomColors.progressGreen:
+        return const Color.fromRGBO(75, 240, 53, 1.0);
+      case CustomColors.pageIndicatorColor:
+        return const Color.fromRGBO(243, 234, 227, 0.8745098039215686);
     }
   }
 }
