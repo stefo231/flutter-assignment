@@ -84,13 +84,13 @@ class _TimeIndicatorState extends State<TimeIndicator>
                 AlwaysStoppedAnimation<Color>(Colors.lightGreenAccent.shade400),
           ),
         ),
-        // Row(
-        //   children: [
-        //     ElevatedButton(
-        //         onPressed: _toggleRunning, child: const Text("Start")),
-        //     ElevatedButton(onPressed: _reset, child: const Text("Stop")),
-        //   ],
-        // ),
+        Row(
+          children: [
+            ElevatedButton(
+                onPressed: _toggleRunning, child: const Text("Start")),
+            ElevatedButton(onPressed: _reset, child: const Text("Restart")),
+          ],
+        ),
       ],
     );
   }
